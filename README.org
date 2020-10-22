@@ -1,0 +1,6 @@
+* wiki-index-builder
+
+This is a go program that builds the Index page for [[https://hjertnes.wiki]]. It crawls a folder and creates a nested structure of links based on the physical HTML files there, and it also looks up the proper titles of the pages in my org-roam database. My wiki is a export of most of my org-roam database
+
+- Set the env ROAMDIR to where your roam dir is
+- It expects a index-template.html like the one in this dir to be located in the director above where the comman is being run from
