@@ -38,7 +38,7 @@ func crawl(path string, builder *strings.Builder){
 			continue
 		}
 		if i.IsDir(){
-			builder.WriteString(fmt.Sprintf(`<li><a href="%s%s">%s</a></li>`,path, i.Name(), i.Name()))
+			builder.WriteString(fmt.Sprintf(`<li><a href="%s/%s">%s</a></li>`, strings.Replace(path, "./", "/", 1), i.Name(), i.Name()))
 			builder.WriteString("<ul>")
 			crawl(fmt.Sprintf("%s/%s", path, i.Name()), builder)
 			builder.WriteString("</ul>")
@@ -47,7 +47,7 @@ func crawl(path string, builder *strings.Builder){
 			if name == ""{
 				name = i.Name()
 			}
-			builder.WriteString(fmt.Sprintf(`<li><a href="%s/%s">%s</a></li>`, path, i.Name(), name))
+			builder.WriteString(fmt.Sprintf(`<li><a href="%s/%s">%s</a></li>`, strings.Replace(path, "./", "/", 1), i.Name(), name))
 		}
 
 	}
