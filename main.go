@@ -21,7 +21,7 @@ func readName(path string, name string) string{
 	lines := strings.Split(string(file), "\n");
 	for _, l := range lines{
 		if strings.HasPrefix(strings.ToLower(l), "#+title: "){
-			return strings.Split(l, ": ")[1]
+			return strings.Join(strings.Split(l, ": ")[1:], ": ")
 		}
 	}
 
